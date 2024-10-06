@@ -1,6 +1,6 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { lazy } from 'react';
 import { Suspense } from 'react';
+const DemoPage = lazy(() => import('./payments/page'))
 
 import './App.css'
 import { DataTableDemo } from './dataTableDemo/DataTableDemo';
@@ -12,11 +12,12 @@ function App() {
   <h1 className="text-3xl font-bold underline">
     Hello world!
   </h1>
+  <section className='min-w-96 flex flex-col justify-center items-center'>
   <Suspense fallback={<div>Loading...</div>}>
-        {/* <DemoPage />
-         */}
+        <DemoPage />
          <DataTableDemo/>
     </Suspense>
+  </section>
   </>
 )
 }
